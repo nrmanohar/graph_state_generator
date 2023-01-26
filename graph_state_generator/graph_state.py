@@ -1,29 +1,48 @@
 """Provide the primary functions."""
+import numpy as np
+from qiskit import QuantumCircuit, transpile
+from qiskit.providers.aer import QasmSimulator
+from qiskit.visualization import plot_histogram
+import matplotlib
+import matplotlib.pyplot as plt
 
+def grapher(edgelist=[[0,1],[1,2],[2,0]]):
+    num=0
+    for i in range(len(edgelist)):
+        for j in range(len(edgelist[i])):
+            if edgelist[i][j]>num:
+                num = edgelist[i][j]
+    circuit = QuantumCircuit(num+1, num+1)
+    for i in range(num+1):
+        circuit.h(i)
+    for i in range(len(edgelist)):
+        circuit.cz(edgelist[i][0],edgelist[i][1])
+    print(circuit)
 
-def canvas(with_attribution=True):
-    """
-    Placeholder function to show example docstring (NumPy format).
-
-    Replace this function and doc string for your own project.
-
-    Parameters
-    ----------
-    with_attribution : bool, Optional, default: True
-        Set whether or not to display who the quote is from.
-
-    Returns
-    -------
-    quote : str
-        Compiled string including quote and optional attribution.
-    """
-
-    quote = "The code is but a canvas to our imagination."
-    if with_attribution:
-        quote += "\n\t- Adapted from Henry David Thoreau because reasons"
-    return quote
+def stabilizer(edgelist=[[0,1],[1,2],[2,0]]):
+    num=0
+    for i in range(len(edgelist)):
+        for j in range(len(edgelist[i])):
+            if edgelist[i][j]>num:
+                num = edgelist[i][j]
+    circuit = QuantumCircuit(2*(num+1), num+1)
+    for i in range(num+1):
+        circuit.h(i)
+    for i in range(len(edgelist)):
+        circuit.cz(edgelist[i][0],edgelist[i][1])
+    print(circuit)
 
 
 if __name__ == "__main__":
     # Do something if this file is invoked on its own
-    print(canvas())
+    inp = input("Edgelist: ")
+    inp=inp.lstrip('[')
+    inp=inp.rstrip(']')
+    edges = inp.split(';')
+
+    for i in range(len(edges)):
+        edges[i] = edges[i].split(',')
+    for i in range(len(edges)):
+        for j in range(len(edges[i])):
+            edges[i][j] = int(edges[i][j])
+    print(grapher(edges))

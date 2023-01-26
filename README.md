@@ -1,8 +1,8 @@
 graph_state_generator
 ==============================
 [//]: # (Badges)
-[![GitHub Actions Build Status](https://github.com/REPLACE_WITH_OWNER_ACCOUNT/graph_state_generator/workflows/CI/badge.svg)](https://github.com/REPLACE_WITH_OWNER_ACCOUNT/graph_state_generator/actions?query=workflow%3ACI)
-[![codecov](https://codecov.io/gh/REPLACE_WITH_OWNER_ACCOUNT/graph_state_generator/branch/main/graph/badge.svg)](https://codecov.io/gh/REPLACE_WITH_OWNER_ACCOUNT/graph_state_generator/branch/main)
+[![GitHub Actions Build Status](https://github.com/nrmanohar/graph_state_generator/workflows/CI/badge.svg)](https://github.com/nrmanohar/graph_state_generator/actions?query=workflow%3ACI)
+[![codecov](https://codecov.io/gh/nrmanohar/graph_state_generator/branch/main/graph/badge.svg)](https://codecov.io/gh/nrmanohar/graph_state_generator/branch/main)
 
 
 A small package to generate graph states and stabilizer codes
